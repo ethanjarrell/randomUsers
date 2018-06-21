@@ -7,7 +7,23 @@ use JSON qw(  );
 use Data::Dumper;
 
 # declare a variable for the test txt file
-my $ethnicity = 'randomUser/ethnicity.txt';
+my $religion = 'religion.txt';
+# connect to and open the json file
+open (FH, "< $religion") or die "Can't open $religion for read: $!";
+my @religionLines;
+while (<FH>) {
+    push (@religionLines, $_);
+}
+close FH or die "Cannot close $religion: $!";
+
+my @religionList = ();
+foreach my $x (@religionLines) {
+  my $str = $x;
+@religionList = split(',', $str);
+}
+
+# declare a variable for the test txt file
+my $ethnicity = 'ethnicity.txt';
 # connect to and open the json file
 open (FH, "< $ethnicity") or die "Can't open $ethnicity for read: $!";
 my @ethnicityLines;
@@ -23,7 +39,7 @@ foreach my $x (@ethnicityLines) {
 }
 
 # declare a variable for the test txt file
-my $associate = 'randomUser/associateDegrees.txt';
+my $associate = 'associateDegrees.txt';
 # connect to and open the json file
 open (FH, "< $associate") or die "Can't open $associate for read: $!";
 my @associateLines;
@@ -39,7 +55,7 @@ foreach my $x (@associateLines) {
 }
 
 # declare a variable for the test txt file
-my $bachelor = 'randomUser/bachelorsDegree.txt';
+my $bachelor = 'bachelorsDegree.txt';
 # connect to and open the json file
 open (FH, "< $bachelor") or die "Can't open $bachelor for read: $!";
 my @bachelorLines;
@@ -55,7 +71,7 @@ foreach my $x (@bachelorLines) {
 }
 
 # declare a variable for the test txt file
-my $master = 'randomUser/mastersDegree.txt';
+my $master = 'mastersDegree.txt';
 # connect to and open the json file
 open (FH, "< $master") or die "Can't open $master for read: $!";
 my @masterLines;
@@ -71,7 +87,23 @@ foreach my $x (@masterLines) {
 }
 
 # declare a variable for the test txt file
-my $hobbies = 'randomUser/hobbies.txt';
+my $university = 'University.txt';
+# connect to and open the json file
+open (FH, "< $university") or die "Can't open $university for read: $!";
+my @universityLines;
+while (<FH>) {
+    push (@universityLines, $_);
+}
+close FH or die "Cannot close $university: $!";
+
+my @universityList = ();
+foreach my $x (@universityLines) {
+  my $str = $x;
+@universityList = split(',', $str);
+}
+
+# declare a variable for the test txt file
+my $hobbies = 'hobbies.txt';
 # connect to and open the json file
 open (FH, "< $hobbies") or die "Can't open $hobbies for read: $!";
 my @hobbieLines;
@@ -87,7 +119,7 @@ foreach my $x (@hobbieLines) {
 }
 
 # declare a variable for the test txt file
-my $occupations = 'randomUser/occupations.txt';
+my $occupations = 'occupations.txt';
 # connect to and open the json file
 open (FH, "< $occupations") or die "Can't open $occupations for read: $!";
 my @occupationsLines;
@@ -103,7 +135,7 @@ foreach my $x (@occupationsLines) {
 }
 
 # declare a variable for the test txt file
-my $animals = 'randomUser/animals.txt';
+my $animals = 'animals.txt';
 # connect to and open the json file
 open (FH, "< $animals") or die "Can't open $animals for read: $!";
 my @animalsLines;
@@ -119,7 +151,7 @@ foreach my $x (@animalsLines) {
 }
 
 # declare a variable for the test txt file
-my $adjectives = 'randomUser/adjectives.txt';
+my $adjectives = 'adjectives.txt';
 # connect to and open the json file
 open (FH, "< $adjectives") or die "Can't open $adjectives for read: $!";
 my @adjectiveLines;
@@ -136,7 +168,7 @@ foreach my $x (@adjectiveLines) {
 
 
 # declare a variable for the test txt file
-my $streetNames = 'randomUser/streetNames.txt';
+my $streetNames = 'streetNames.txt';
 # connect to and open the json file
 open (FH, "< $streetNames") or die "Can't open $streetNames for read: $!";
 my @streetLines;
@@ -152,7 +184,7 @@ foreach my $x (@streetLines) {
 }
 
 # declare a variable for the test txt file
-my $maleNames = 'randomUser/maleNames.txt';
+my $maleNames = 'maleNames.txt';
 # connect to and open the json file
 open (FH, "< $maleNames") or die "Can't open $maleNames for read: $!";
 my @maleLines;
@@ -168,7 +200,7 @@ foreach my $x (@maleLines) {
 }
 
 # declare a variable for the test txt file
-my $femaleNames = 'randomUser/femaleNames.txt';
+my $femaleNames = 'femaleNames.txt';
 # connect to and open the json file
 open (FH, "< $femaleNames") or die "Can't open $femaleNames for read: $!";
 my @femaleLines;
@@ -184,7 +216,7 @@ foreach my $x (@femaleLines) {
 }
 
 # declare a variable for the test txt file
-my $cities = 'randomUser/city.txt';
+my $cities = 'city.txt';
 # connect to and open the json file
 open (FH, "< $cities") or die "Can't open $cities for read: $!";
 my @cities;
@@ -200,7 +232,7 @@ foreach my $x (@cities) {
 }
 
 # declare a variable for the test txt file
-my $states = 'randomUser/states.txt';
+my $states = 'states.txt';
 # connect to and open the json file
 open (FH, "< $states") or die "Can't open $states for read: $!";
 my @states;
@@ -261,6 +293,9 @@ my $hobby3 = $hobbyList[$index7];
 my $index9 = rand @ethnicityList;
 my $ethnicBackground = $ethnicityList[$index9];
 
+my $index15 = rand @religionList;
+my $myReligion = $religionList[$index15];
+
 my $sN1 = int(rand(8)+1);
 my $sN2 = int(rand(9));
 my $sN3 = int(rand(9));
@@ -292,6 +327,7 @@ my $female = @femaleList;
 my $city = @cityList;
 my $state = @stateList;
 my $street = @streetList;
+
 
 my $male_or_female = int(rand(2));
 my $gender = "";
@@ -325,6 +361,26 @@ my $spouse = $genderArr2[$random_spouse];
 my $newCity = $cityList[$random_city];
 my $newState = $stateList[$random_state];
 my $newStreet = $streetList[$random_street];
+
+my @universityChoices = ();
+foreach my $x (@universityList) {
+  if (index($x, $newState) != -1) {
+      push @universityChoices, $x;
+  }
+
+}
+
+my $uni = @universityChoices;
+
+my $insateOutstate = int(rand(4));
+my $school = "";
+if ($insateOutstate < 3 && $uni >= 1){
+  my $index12 = rand @universityChoices;
+  $school = $universityChoices[$index12];
+} else {
+  my $index16 = rand @universityList;
+  $school = $universityList[$index16];
+}
 
 my $marital = int(rand(2));
 my $married = "";
@@ -390,9 +446,39 @@ foreach my $x (@degrees) {
   $degree = $degree . ", " . $x;
 }
 
+my $highestLevelOfEducation = "";
+my $masterList = @masterList;
+my $bachelorList = @bachelorList;
+my $associateList = @associateList;
+if ($associateList > 0){
+  $highestLevelOfEducation = "Associates Degree";
+}
+if ($bachelorList > 0) {
+  $highestLevelOfEducation = "Bachelors Degree";
+}
+if ($masterList > 0) {
+  $highestLevelOfEducation = "Masters Degree";
+}
+
+my $studentLoanDebt = 0;
+my $education = int(rand(3));
 if ($degree eq ""){
-  my $index8 = rand @bachelorList;
-  $degree = $bachelorList[$index8];
+  if ($education == 0){
+  my $index8 = rand @associateList;
+  $degree = $associateList[$index8];
+  $highestLevelOfEducation = "Associates Degree";
+  $studentLoanDebt = int(rand(3000));
+}elsif ( $education == 1){
+  $degree = "High School Diploma";
+  $highestLevelOfEducation = "High School Diploma";
+  $school = $newCity . " " . "High School";
+  $studentLoanDebt = 0;
+}elsif ( $education == 2){
+  $degree = "High School Diploma";
+  $highestLevelOfEducation = "Some College";
+  $school = $newState . " " . "community college";
+  $studentLoanDebt = int(rand(2500));
+}
 }
 
 my $age = int(rand(50)+20);
@@ -405,7 +491,7 @@ if ($numberOfDegrees == 2 ){
 }
 
 my $birthYear = 2018 - $age;
-my $birthMonth = int(rand(12)+1);
+my $birthMonth = int(rand(11));
 my $birthDay = int(rand(29)+1);
 my @months = ("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December");
 
@@ -418,13 +504,16 @@ if ($age > 65){
 }
 my $multiplier2 = int(rand(9574));
 my $multiplier = int(rand(11320) + $multiplier2);
-my $studentLoanDebt = ($numberOfDegrees+1) * $multiplier;
+$studentLoanDebt = ($numberOfDegrees) * $multiplier;
+if ($highestLevelOfEducation eq "Some College" || $highestLevelOfEducation eq "Associates Degree"){
+  $studentLoanDebt = int(rand(3654));
+}
 
 if ($newState eq "Utah"){
 $kids = $kids + int(rand(4));
 }
 
-my @jobList = ("Engi", "Judge", "Consul", "Compu", "Scie", "Info", "Anal", "Market", "market", "anal", "info", "scie", "compu", "engi", "econo", "Econo", "thera", "Thera", "Astro", "astro", "Bio", "bio", "manag", "Manag", "Dent", "dent", "Doct", "doct", "polit", "Polit", "gist", "Medic", "medic", "Admin", "admin", "data", "Data");
+my @jobList = ("Engi", "Judge", "Consul", "Compu", "Scie", "Info", "Anal", "Market", "market", "anal", "info", "scie", "compu", "engi", "econo", "Econo", "thera", "Thera", "Astro", "astro", "Bio", "bio", "manag", "Manag", "Dent", "dent", "Doct", "doct", "polit", "Polit", "gist", "Medic", "medic", "Admin", "admin", "data", "Data", "Mist", "mist");
 my $annualSalary = int(rand(38000)+15000);
 if ($numberOfDegrees >= 2) {
   $annualSalary = $annualSalary + int(rand(60000)+20000);
@@ -434,9 +523,161 @@ foreach my $x (@jobList) {
   if (index($job, $x) != -1) {
     $numberOfMatches = $numberOfMatches + 1;
     $annualSalary = $annualSalary + int(rand(20000));
+    $highestLevelOfEducation = "Masters Degree";
+    my $mastersIndex = rand @masterList;
+    $school = $masterList[$mastersIndex];
   }
 }
 
-my $json = {NAME=>$name, AGE=>$age, STUDENT_LOAN_DEBT=>'$' . $studentLoanDebt . '.00', ANNUAL_SALARY=>'$' . $annualSalary . '.00', CHILDREN=>$kids, BIRTHDAY=>$birthDate, GENDER=>$gender, MARITAL_STATUS=>$married, SPOUSE=>$spouse, ADDRESS=>$streetNumber . " " . $newStreet . ", " . $newCity . ", " . $newState . " " . $zipcode, PHONE=>$phoneNumber, EMAIL=>$emailAddress, OCCUPATION=>$job, HOBBIES=>$hobby1 . ", " . $hobby2 . ", " . $hobby3, EDUCATION=>$degree, ETHNICITY=>$ethnicBackground};
+############################# --- Physical Appearance -- ###############################
+
+
+my $hairColor = "";
+my $skinColor = "";
+my $height = "";
+my $bodyType = "";
+my $weight = "";
+my $eyeColor = "";
+if (index($ethnicBackground, "Brazilian") != -1 ||
+    index($ethnicBackground, "African") != -1 ||
+    index($ethnicBackground, "Jew") != -1 ||
+    index($ethnicBackground, "Hispanic") != -1 ||
+    index($ethnicBackground, "Angolan") != -1 ||
+    index($ethnicBackground, "Asian") != -1 ||
+    index($ethnicBackground, "Chinese") != -1 ||
+    index($ethnicBackground, "Cuban") != -1 ||
+    index($ethnicBackground, "Portuguese") != -1 ||
+    index($ethnicBackground, "Italian") != -1 ||
+    index($ethnicBackground, "Pakistani") != -1 ||
+    index($ethnicBackground, "Maori") != -1 ||
+    index($ethnicBackground, "Filipino") != -1) {
+      my @hairChoices = ("Brown", "Dark Brown", "Black");
+      my @eyeChoices = ("Brown", "Dark Brown", "Black", "Hazel", "Green");
+      my $hairIndex = int(rand(3));
+      $hairColor = $hairChoices[$hairIndex];
+      my $eyeIndex = int(rand(5));
+      $eyeColor = $eyeChoices[$eyeIndex];
+}
+if(index($ethnicBackground, "Brazilian") != -1 ||
+index($ethnicBackground, "African") != -1 ||
+index($ethnicBackground, "Maori") != -1 ){
+  my @skinChoices = ("Brown", "Dark Brown", "Light Brown", "Black");
+  $skinColor = $skinChoices[int(rand(4))];
+}
+if(index($ethnicBackground, "Filipino") != -1 ||
+index($ethnicBackground, "Jew") != -1 ||
+index($ethnicBackground, "Hispanic") != -1 ||
+index($ethnicBackground, "Angolan") != -1 ||
+index($ethnicBackground, "Asian") != -1 ||
+index($ethnicBackground, "Chinese") != -1 ||
+index($ethnicBackground, "Cuban") != -1 ||
+index($ethnicBackground, "Portuguese") != -1 ||
+index($ethnicBackground, "Italian") != -1 ||
+index($ethnicBackground, "Pakistani") != -1
+){
+  my @skinChoices = ("Brown", "Light Brown", "Tan", "Golden Brown", "Caramel");
+  $skinColor = $skinChoices[int(rand(4))];
+}
+my $hobb = $hobby1 . $hobby2 . $hobby3;
+if (index($hobb, "Body") != -1 ||
+    index($hobb, "Boat") != -1 ||
+    index($hobb, "Sport") != -1 ||
+    index($hobb, "Basket") != -1 ||
+    index($hobb, "Ball") != -1 ||
+    index($hobb, "Golf") != -1 ||
+    index($hobb, "Outdoor") != -1 ||
+    index($hobb, "Hik") != -1 ||
+    index($hobb, "Body") != -1 ||
+    index($hobb, "Beach") != -1 ||
+    index($hobb, "BMX") != -1 ||
+    index($hobb, "Weight") != -1 ||
+    index($hobb, "Bik") != -1 ||
+    index($hobb, "Surf") != -1){
+      my @weightChoices = ("Muscular", "Athletic", "Fit", "Toned", "Average", "Thin", "Chubby");
+      $bodyType = $weightChoices[int(rand(7))];
+    }
+my @alternativeEye = ("Blue", "Green", "Hazel", "Brown", "Black");
+my @alternativeWeight = ("Fat", "Overweight", "Chubby", "Heavy-Set", "Big Boned", "Thick", "Muscular", "Fit", "Toned", "Average", "Thin", "Skinny", "Athletic");
+my @alternativeSkin = ("Brown", "Light Brown", "Tan", "Golden", "Caramel", "Light Skin", "White", "Pink", "Dark", "Black");
+my @alternativeHair = ("White", "Gray", "Black", "Brown", "Red", "Blonde", "Sandy", "Light Brown", "Dark Brown", "Silver", "Sandy Blonde", "Sandy Brown", "Ginger", "Brown with Highlights");
+if ($skinColor eq ""){
+  my $skinIndex = rand @alternativeSkin;
+  $skinColor = $alternativeSkin[$skinIndex];
+}
+if ($hairColor eq ""){
+  $hairColor = $alternativeHair[int(rand(14))];
+}
+if ($eyeColor eq ""){
+  $eyeColor = $alternativeEye[int(rand(5))];
+}
+if($weight eq ""){
+  $bodyType = $alternativeWeight[int(rand(14))];
+}
+my @feetChoices = (4, 5, 6, 7);
+my $inches = int(rand(12));
+my $feetIndex = rand @feetChoices;
+my $feet = $feetChoices[$feetIndex];
+my $inches = int(rand(12));
+my $hundreds = 1;
+my $tens = int(rand(50)+10);
+if ($feet == 5) {
+  $hundreds = 1;
+} elsif ($feet == 6) {
+  $hundreds == 2;
+} elsif ($feet == 7) {
+  $hundreds == 3;
+}
+if ($feet == 5 && $bodyType eq "Muscular") {
+  $hundreds = 1;
+  $tens = int(rand(75)+10);
+} elsif ($feet == 5 && $bodyType eq "Fat"){
+  $hundreds = 2;
+  $tens = int(rand(75)+10);
+}elsif ($feet == 5 && $bodyType eq "Chubby"){
+  $hundreds = 1;
+  $tens = int(rand(90)+10);
+}elsif ($feet == 5 && $bodyType eq "Heavy-Set"){
+  $hundreds = 2;
+  $tens = int(rand(25)+10);
+} elsif ($feet == 5 && $bodyType eq "Overweight"){
+  $hundreds = 2;
+  $tens = int(rand(25)+10);
+}elsif ($feet == 6 && $bodyType eq "Muscular") {
+  $hundreds = 3;
+  $tens = int(rand(75)+10);
+} elsif ($feet == 6 && $bodyType eq "Fat"){
+  $hundreds = 3;
+  $tens = int(rand(75)+10);
+}elsif ($feet == 6 && $bodyType eq "Chubby"){
+  $hundreds = 3;
+  $tens = int(rand(90)+10);
+}elsif ($feet == 6 && $bodyType eq "Heavy-Set"){
+  $hundreds = 3;
+  $tens = int(rand(25)+10);
+} elsif ($feet == 6 && $bodyType eq "Overweight"){
+  $hundreds = 3;
+  $tens = int(rand(25)+10);
+}elsif ($feet == 7 && $bodyType eq "Muscular") {
+  $hundreds = 4;
+  $tens = int(rand(75)+10);
+} elsif ($feet == 7 && $bodyType eq "Fat"){
+  $hundreds = 4;
+  $tens = int(rand(75)+10);
+}elsif ($feet == 7 && $bodyType eq "Chubby"){
+  $hundreds = 4;
+  $tens = int(rand(90)+10);
+}elsif ($feet == 7 && $bodyType eq "Heavy-Set"){
+  $hundreds = 4;
+  $tens = int(rand(25)+10);
+} elsif ($feet == 7 && $bodyType eq "Overweight"){
+  $hundreds = 4;
+  $tens = int(rand(25)+10);
+}
+
+my $finalWeight = $hundreds . $tens . " lbs";
+my $finalHeight = $feet . " feet, " . $inches . " inches";
+
+
+my $json = {NAME=>$name, WEIGHT=>$finalWeight, HEIGHT=>$finalHeight, EYE_COLOR=>$eyeColor, BODY_TYPE=>$bodyType, HAIR_COLOR=>$hairColor, SKIN_COLOR=>$skinColor, RELIGION=>$myReligion, SCHOOL=>$school, HIGHEST_LEVEL_OF_EDUCATION=>$highestLevelOfEducation, AGE=>$age, STUDENT_LOAN_DEBT=>'$' . $studentLoanDebt . '.00', ANNUAL_SALARY=>'$' . $annualSalary . '.00', CHILDREN=>$kids, BIRTHDAY=>$birthDate, GENDER=>$gender, MARITAL_STATUS=>$married, SPOUSE=>$spouse, ADDRESS=>$streetNumber . " " . $newStreet . ", " . $newCity . ", " . $newState . " " . $zipcode, PHONE=>$phoneNumber, EMAIL=>$emailAddress, OCCUPATION=>$job, HOBBIES=>$hobby1 . ", " . $hobby2 . ", " . $hobby3, DEGREE=>$degree, ETHNICITY=>$ethnicBackground};
 
 print Dumper $json;
