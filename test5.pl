@@ -87,7 +87,7 @@ foreach my $x (@masterLines) {
 }
 
 # declare a variable for the test txt file
-my $university = 'University.txt';
+my $university = 'university.txt';
 # connect to and open the json file
 open (FH, "< $university") or die "Can't open $university for read: $!";
 my @universityLines;
@@ -614,7 +614,6 @@ if($weight eq ""){
   $bodyType = $alternativeWeight[int(rand(14))];
 }
 my @feetChoices = (4, 5, 6, 7);
-my $inches = int(rand(12));
 my $feetIndex = rand @feetChoices;
 my $feet = $feetChoices[$feetIndex];
 my $inches = int(rand(12));
@@ -623,9 +622,9 @@ my $tens = int(rand(50)+10);
 if ($feet == 5) {
   $hundreds = 1;
 } elsif ($feet == 6) {
-  $hundreds == 2;
+  $hundreds = 2;
 } elsif ($feet == 7) {
-  $hundreds == 3;
+  $hundreds = 3;
 }
 if ($feet == 5 && $bodyType eq "Muscular") {
   $hundreds = 1;
